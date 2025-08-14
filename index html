@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus AI Solutions | South Africa's Premier AI Service Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #8b5cf6;
+            --accent: #0ea5e9;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --sa-gold: #ffb81c;
+            --sa-green: #007749;
+            --sa-red: #de3831;
+            --sa-blue: #002395;
+            --sa-black: #000000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--light);
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.15) 0%, transparent 40%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjAuNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #38bdf8, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #cbd5e1;
+            max-width: 600px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .ai-grid {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            overflow: hidden;
+        }
+        
+        .grid-node {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--accent);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+        
+        .node-1 { top: 15%; left: 20%; animation-delay: 0s; }
+        .node-2 { top: 30%; left: 70%; animation-delay: 0.5s; }
+        .node-3 { top: 60%; left: 40%; animation-delay: 1s; }
+        .node-4 { top: 45%; left: 15%; animation-delay: 1.5s; }
+        .node-5 { top: 75%; left: 80%; animation-delay: 0.3s; }
+        
+        .grid-line {
+            position: absolute;
+            background: rgba(56, 189, 248, 0.1);
+        }
+        
+        .horizontal-line {
+            height: 1px;
+            width: 100%;
+            left: 0;
+        }
+        
+        .vertical-line {
+            width: 1px;
+            height: 100%;
+            top: 0;
+        }
+        
+        /* Services Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #38bdf8, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(56, 189, 248, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+        
+        .price-tag {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        /* Payment System */
+        .payment-system {
+            background: rgba(15, 23, 42, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .payment-system::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
+            z-index: -1;
+        }
+        
+        .payment-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .step-card {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            width: 250px;
+            text-align: center;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .step-card h3 {
+            margin: 20px 0 15px;
+            font-size: 1.4rem;
+        }
+        
+        .step-card p {
+            color: #94a3b8;
+        }
+        
+        .payment-flow {
+            max-width: 900px;
+            margin: 60px auto 0;
+            padding: 30px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 15px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        
+        .flow-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .flow-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        
+        .flow-steps::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: var(--accent);
+            z-index: 0;
+        }
+        
+        .flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+            width: 20%;
+        }
+        
+        .flow-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .flow-step p {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Dashboard Preview */
+        .dashboard-preview {
+            position: relative;
+            padding: 80px 0;
+            overflow: hidden;
+        }
+        
+        .dashboard-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .dashboard-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .dashboard-image {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dashboard-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .stat-title {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 5px;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .chart-placeholder {
+            height: 200px;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            margin-top: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.95);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #94a3b8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .flow-steps::before {
+                display: none;
+            }
+            
+            .flow-steps {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+            
+            .flow-step {
+                width: 45%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .flow-step {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-btns {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-brain logo-icon"></i>
+                    NexusAI
+                </a>
+                <div class="nav-links">
+                    <a href="#services">Services</a>
+                    <a href="#payment">Payment</a>
+                    <a href="#dashboard">Dashboard</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <a href="#contact" class="btn">Get Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>AI-Powered Solutions for South African Businesses</h1>
+                    <p>Our Super AGI platform creates specialized agents to handle your digital needs - from marketing to security - all at zero upfront cost. Start with free tools and scale automatically as your business grows.</p>
+                    <div class="hero-btns">
+                        <a href="#services" class="btn">Explore Services</a>
+                        <a href="#contact" class="btn btn-outline">Book a Demo</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="ai-grid">
+                        <div class="grid-node node-1"></div>
+                        <div class="grid-node node-2"></div>
+                        <div class="grid-node node-3"></div>
+                        <div class="grid-node node-4"></div>
+                        <div class="grid-node node-5"></div>
+                        <!-- Grid lines would be added here with JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our AI-Powered Services</h2>
+                <p>All services include military-grade security, compliance, and automated quality assurance</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Custom Algorithms</h3>
+                    <p>AI-developed algorithms tailored to your specific business needs and industry requirements.</p>
+                    <span class="price-tag">R15,000 - R100,000</span>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-dashboard"></i>
+                    </div>
+                    <h3>Performance Dashboards</h3>
+                    <p>Real-time analytics and visualization tools to monitor your business performance.</p>
+                    <span class="price-tag">R7,500 - R40,000</span>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Marketing Agents</h3>
+                    <p>AI-powered marketing campaigns across all platforms tailored for the SA market.</p>
+                    <span class="price-tag">R5,000 - R25,000</span>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Security & Compliance</h3>
+                    <p>POPIA-compliant security solutions with military-grade encryption.</p>
+                    <span class="price-tag">R8,000 - R30,000</span>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Website Development</h3>
+                    <p>Responsive, high-conversion websites built with AI optimization.</p>
+                    <span class="price-tag">R12,000 - R75,000</span>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Maintenance Packages</h3>
+                    <p>Ongoing support, updates, and proactive problem resolution.</p>
+                    <span class="price-tag">R499 - R1,299/mo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment System -->
+    <section id="payment" class="section payment-system">
+        <div class="container">
+            <div class="section-title">
+                <h2>Automated Payment System</h2>
+                <p>Our payment distribution agent handles all transactions with military security</p>
+            </div>
+            
+            <div class="payment-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Secure Payment</h3>
+                    <p>Client pays via secure FNB integrated gateway</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Job Processing</h3>
+                    <p>AI agents begin work immediately after payment</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Quality Assurance</h3>
+                    <p>Automated testing and debugging before delivery</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Fund Distribution</h3>
+                    <p>Automatic splitting to designated FNB accounts</p>
+                </div>
+            </div>
+            
+            <div class="payment-flow">
+                <div class="flow-title">Payment Distribution Process</div>
+                <div class="flow-steps">
+                    <div class="flow-step">
+                        <div class="flow-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <p>Payment Received</p>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <div class="flow-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <p>20% to Apex Digital AI</p>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <div class="flow-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <p>20% to Nexus Platforms AI</p>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <div class="flow-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <p>Owner Approval >R1000</p>
+                    </div>
+                    
+                    <div class="flow-step">
+                        <div class="flow-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <p>60% to Owner Account</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section id="dashboard" class="section dashboard-preview">
+        <div class="container">
+            <div class="dashboard-content">
+                <div class="dashboard-text">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px; background: linear-gradient(to right, #38bdf8, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Real-Time Performance Dashboard</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 30px; color: #cbd5e1; max-width: 600px;">Our AI-powered dashboard provides real-time insights into your business performance, job progress, and financial metrics.</p>
+                    <ul style="list-style: none; margin-bottom: 30px;">
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 10px; margin-top: 5px;"></i>
+                            <span>Track job progress across multiple teams</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 10px; margin-top: 5px;"></i>
+                            <span>Monitor revenue streams by region and service type</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 10px; margin-top: 5px;"></i>
+                            <span>Approve payments over R1000 with one click</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 10px; margin-top: 5px;"></i>
+                            <span>View AI agent performance metrics</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn">Access Your Dashboard</a>
+                </div>
+                <div class="dashboard-image">
+                    <div class="dashboard-header">
+                        <div class="dashboard-title">Performance Overview</div>
+                        <div style="color: var(--success);">
+                            <i class="fas fa-circle" style="font-size: 0.5rem; vertical-align: middle;"></i> 
+                            <span style="margin-left: 5px;">Live</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-title">Active Jobs</div>
+                            <div class="stat-value">42</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-title">Weekly Revenue</div>
+                            <div class="stat-value">R248,760</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-title">Pending Approval</div>
+                            <div class="stat-value">R12,400</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-title">AI Agents</div>
+                            <div class="stat-value">28</div>
+                        </div>
+                    </div>
+                    <div class="chart-placeholder">
+                        <i class="fas fa-chart-bar" style="margin-right: 10px;"></i>
+                        Revenue Distribution Chart
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Nexus AI Solutions</h3>
+                    <p style="color: #94a3b8; margin-bottom: 20px; max-width: 300px;">AI-powered solutions for South African businesses with zero upfront costs and military-grade security.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Custom Algorithms</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Performance Dashboards</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Marketing Agents</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Security & Compliance</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Website Development</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Johannesburg, South Africa</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+27 11 123 4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@nexusai.co.za</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 8:00 AM - 5:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p style="color: #94a3b8; margin-bottom: 15px;">Subscribe for AI insights and special offers</p>
+                    <form style="display: flex; gap: 10px;">
+                        <input type="email" placeholder="Your Email" style="flex: 1; padding: 12px; border-radius: 50px; border: none; background: rgba(255, 255, 255, 0.1); color: white;">
+                        <button type="submit" style="background: var(--primary); color: white; border: none; border-radius: 50px; width: 40px; height: 40px; cursor: pointer;"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Nexus AI Solutions. All rights reserved. | POPIA Compliant | FNB Banking Integration</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for AI grid nodes
+        document.addEventListener('DOMContentLoaded', function() {
+            const nodes = document.querySelectorAll('.grid-node');
+            
+            nodes.forEach(node => {
+                // Random movement on hover
+                node.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.5)';
+                    this.style.transition = 'transform 0.3s';
+                });
+                
+                node.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Create grid lines
+            const grid = document.querySelector('.ai-grid');
+            const width = grid.offsetWidth;
+            const height = grid.offsetHeight;
+            
+            // Create horizontal lines
+            for (let i = 0; i < height; i += 40) {
+                const line = document.createElement('div');
+                line.className = 'grid-line horizontal-line';
+                line.style.top = i + 'px';
+                grid.appendChild(line);
+            }
+            
+            // Create vertical lines
+            for (let i = 0; i < width; i += 40) {
+                const line = document.createElement('div');
+                line.className = 'grid-line vertical-line';
+                line.style.left = i + 'px';
+                grid.appendChild(line);
+            }
+        });
+    </script>
+</body>
+</html>
